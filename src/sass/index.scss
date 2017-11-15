@@ -1,0 +1,160 @@
+body{
+    #banner{
+        height: 480px;
+        width: 100%;
+        background:url('../img/b1.jpg');
+    }
+    #main{
+        .mc_t{
+
+            .mct1{
+                padding:46px 0;
+                h3{
+                    float:left;
+                    margin-right:24px;
+                    margin-left:32px;
+                    font-size:22px;
+                    font-weight:bold;
+                }
+                span{
+                    font-size:14px;
+                }
+            }
+            position:relative;
+            .prev,.next{
+                position:absolute;
+                display:block;
+                width: 27px;
+                line-height: 44px;
+                text-align:center;
+                height: 44px;
+                font-size:14px;
+                color:#fff;
+                background:#CACACA;
+                top:45%;
+                transform:translate(0,-50%)
+            }
+            .prev{
+                left:0;
+            }
+            .next{
+                right:0;
+            }
+            .mct2{
+                height:360px;
+                margin:0 27px;
+                overflow:hidden;
+                margin-bottom:46px;
+                position:relative;
+                .olist{
+                    position:absolute;
+                    .it_c{
+                        float:left;
+                        width: 280px;
+                        height: 360px;
+                        a{
+                            display:block;
+                            margin-left:5%;
+                            img{
+                                display:block;
+                                width: 234px;
+                                height: 242px;
+                            }
+                            h3{
+                                font-size:14px;
+                                height: 18px;
+                                text-align:center;
+                                line-height: 18px;
+                                color:#333;
+                            }
+                            p{
+                                margin-top:38px;
+                                text-align:center;
+                                span::before{
+                                    content:"￥";
+                                }
+                                .sp1{
+                                    font-size:16px;
+                                    color:#FF5073;
+                                }
+                                .sp2{
+                                    color:#999999;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .mc_c{
+            //首页main的商品展示
+            .glist{
+                .item{
+                    margin-right:60px;
+                    margin-bottom:60px;
+                    width: 350px;
+                    &:hover{
+                      box-shadow: 0px 0px 10px #b2b2b2;
+                    }
+                    .msg{
+                       display:block;
+                       padding:36px 36px 40px;
+                       img{
+                            display:block;
+                            width: 270px;
+                            height: 270px;
+                        } 
+                        h3{
+                            font-size:16px;
+                            color:#5C5C5C;
+                            margin-bottom:12px;
+                        }
+                        h4{
+                            font-size:20px;
+                            color:#333;
+                            }
+                        }
+                        .pStop{
+                            background:#FFF5F9;
+                            .npri{
+                                margin-left:20px;
+                                line-height: 60px;
+                                font-size:20px;
+                                color:#FF7E00;
+                            }
+                            .allp{
+                                width: 226px;
+                                span::before{
+                                    content:"￥";
+                                }
+                                    .pri{
+                                        padding:12px 0 12px 10px;
+                                        font-size:12px;
+                                        .cpri{
+                                            color:#BEB7BA;
+                                        }
+                                        .spri{
+                                            color:#FD9ED9;
+                                        }
+                                    }
+                                }
+                                button{
+                                    background:#FD49AC;
+                                    height: 60px;
+                                    width: 124px;
+                                    font-size:20px;
+                                    line-height: 60px;
+                                    color:#fff;
+                                }
+                            }
+                        }
+                        .item:nth-child(3n){
+                            margin-right:0;
+                        }
+            }
+        }
+      
+    }
+}
+

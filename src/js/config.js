@@ -1,0 +1,12 @@
+/*
+    requirejs配置
+ */
+require.config({
+    paths:{
+        jquery:'../lib/jquery-3.2.1',
+        common:'../js/common'
+    },
+    shim:{
+        common:['jquery']//common依赖jquery
+    }
+});

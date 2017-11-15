@@ -1,0 +1,41 @@
+#d_header .container { height: 100px; padding-top: 30px; }
+
+#d_header .container h1 { width: 236px; height: 36px; background: url("../img/logo.png") no-repeat; }
+
+#d_banner { height: 520px; background: url("../img/b1.jpg"); }
+
+#d_banner .container { padding-top: 60px; }
+
+#d_banner .container .login { background: #fff; width: 410px; padding-top: 30px; }
+
+#d_banner .container .login .test { padding: 0 30px 22px; border-bottom: 1px solid #ccc; }
+
+#d_banner .container .login .test h2 { padding-right: 5px; margin-bottom: 40px; }
+
+#d_banner .container .login .test h2 span { font-size: 18px; color: #333; }
+
+#d_banner .container .login .test h2 a { color: #3D86F4; font-size: 14px; }
+
+#d_banner .container .login .test input, #d_banner .container .login .test .btn { width: 350px; height: 40px; line-height: 40px; margin-bottom: 20px; border: 1px solid #ccc; padding-left: 10px; }
+
+#d_banner .container .login .test .btn { padding: 0; }
+
+#d_banner .container .login .test .btn a { display: block; background: #FF5073; font-size: 20px; color: #fff; border: 0; text-align: center; }
+
+#d_banner .container .login .test p { margin-bottom: 20px; font-size: 14px; }
+
+#d_banner .container .login .footer { padding: 13px 30px 15px; }
+
+#d_banner .container .login .footer p { height: 24px; }
+
+#d_banner .container .login .footer p span { font-size: 14px; margin-right: 40px; }
+
+#d_banner .container .login .footer p a { margin-right: 40px; }
+
+#d_banner .container .login .footer p a i { font-size: 24px; }
+
+#d_banner .container .login .footer p a .weixin { color: #7EBE18; }
+
+#d_banner .container .login .footer p a .weibo { color: #E6152C; }
+
+#d_banner .container .login .footer p a .qq { color: #222024; }

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+body #banner { height: 480px; width: 100%; background: url("../img/b1.jpg"); }
+
+body #main .mc_t { position: relative; }
+
+body #main .mc_t .mct1 { padding: 46px 0; }
+
+body #main .mc_t .mct1 h3 { float: left; margin-right: 24px; margin-left: 32px; font-size: 22px; font-weight: bold; }
+
+body #main .mc_t .mct1 span { font-size: 14px; }
+
+body #main .mc_t .prev, body #main .mc_t .next { position: absolute; display: block; width: 27px; line-height: 44px; text-align: center; height: 44px; font-size: 14px; color: #fff; background: #CACACA; top: 45%; transform: translate(0, -50%); }
+
+body #main .mc_t .prev { left: 0; }
+
+body #main .mc_t .next { right: 0; }
+
+body #main .mc_t .mct2 { height: 360px; margin: 0 27px; overflow: hidden; margin-bottom: 46px; position: relative; }
+
+body #main .mc_t .mct2 .olist { position: absolute; }
+
+body #main .mc_t .mct2 .olist .it_c { float: left; width: 280px; height: 360px; }
+
+body #main .mc_t .mct2 .olist .it_c a { display: block; margin-left: 5%; }
+
+body #main .mc_t .mct2 .olist .it_c a img { display: block; width: 234px; height: 242px; }
+
+body #main .mc_t .mct2 .olist .it_c a h3 { font-size: 14px; height: 18px; text-align: center; line-height: 18px; color: #333; }
+
+body #main .mc_t .mct2 .olist .it_c a p { margin-top: 38px; text-align: center; }
+
+body #main .mc_t .mct2 .olist .it_c a p span::before { content: "￥"; }
+
+body #main .mc_t .mct2 .olist .it_c a p .sp1 { font-size: 16px; color: #FF5073; }
+
+body #main .mc_t .mct2 .olist .it_c a p .sp2 { color: #999999; }
+
+body #main .mc_c .glist .item { margin-right: 60px; margin-bottom: 60px; width: 350px; }
+
+body #main .mc_c .glist .item:hover { box-shadow: 0px 0px 10px #b2b2b2; }
+
+body #main .mc_c .glist .item .msg { display: block; padding: 36px 36px 40px; }
+
+body #main .mc_c .glist .item .msg img { display: block; width: 270px; height: 270px; }
+
+body #main .mc_c .glist .item .msg h3 { font-size: 16px; color: #5C5C5C; margin-bottom: 12px; }
+
+body #main .mc_c .glist .item .msg h4 { font-size: 20px; color: #333; }
+
+body #main .mc_c .glist .item .pStop { background: #FFF5F9; }
+
+body #main .mc_c .glist .item .pStop .npri { margin-left: 20px; line-height: 60px; font-size: 20px; color: #FF7E00; }
+
+body #main .mc_c .glist .item .pStop .allp { width: 226px; }
+
+body #main .mc_c .glist .item .pStop .allp span::before { content: "￥"; }
+
+body #main .mc_c .glist .item .pStop .allp .pri { padding: 12px 0 12px 10px; font-size: 12px; }
+
+body #main .mc_c .glist .item .pStop .allp .pri .cpri { color: #BEB7BA; }
+
+body #main .mc_c .glist .item .pStop .allp .pri .spri { color: #FD9ED9; }
+
+body #main .mc_c .glist .item .pStop button { background: #FD49AC; height: 60px; width: 124px; font-size: 20px; line-height: 60px; color: #fff; }
+
+body #main .mc_c .glist .item:nth-child(3n) { margin-right: 0; }

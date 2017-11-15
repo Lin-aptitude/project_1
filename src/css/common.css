@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.r_aside { width: 40px; height: 1200px; position: fixed; right: 0; top: 0; background: #818181; }
+
+.r_aside .rac { margin-top: 190px; background: #818181; /*左边的span*/ }
+
+.r_aside .rac li { margin-bottom: 6px; position: relative; text-align: center; }
+
+.r_aside .rac li a { display: block; height: 38px; padding-top: 10px; }
+
+.r_aside .rac li a:hover { background: #ed145b; }
+
+.r_aside .rac li a i { font-size: 22px; color: #fff; }
+
+.r_aside .rac .car { margin-bottom: 20px; }
+
+.r_aside .rac .car a { text-align: center; height: 124px; }
+
+.r_aside .rac .car a i { font-size: 22px; color: #fff; }
+
+.r_aside .rac .car a span { display: block; margin-left: 12px; margin-top: 5px; font-size: 13px; color: #fff; }
+
+.r_aside .rac .car a span:nth-of-type(1) { width: 16px; }
+
+.r_aside .rac .car a span:nth-of-type(2) { width: 21px; height: 21px; line-height: 21px; border-radius: 50%; background: #ed145b; }
+
+.r_aside .rac .gr a { display: block; height: 38px; }
+
+.r_aside .rac .zx { margin-top: 160px; }
+
+.r_aside .rac .gotop a { position: relative; line-height: 38px; color: #fff; }
+
+.r_aside .rac .gotop a .top { display: block; border-width: 10px; position: absolute; left: 25%; top: -4px; border-style: solid dashed dashed dashed; border-color: transparent transparent #fff transparent; }
+
+.r_aside .rac .sa .lsp { display: none; width: 92px; position: absolute; line-height: 38px; color: #ccc; height: 38px; background: #818181; }
+
+.r_aside .rac .sa .lsp i { display: block; position: absolute; right: -16px; top: 50%; transform: translate(0, -50%); border-width: 8px; border-style: solid dashed dashed dashed; border-color: transparent transparent transparent #818181; }
