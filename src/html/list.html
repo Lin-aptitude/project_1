@@ -5,14 +5,22 @@
     <title>列表页</title>
     <link rel="stylesheet" type="text/css" href="../css/bass.css" />
     <link rel="stylesheet" type="text/css" href="../css/list.css" />
-    <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/list.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    
 </head>
 <body>
+    <div id="l_head"></div>
     <div id="l_main">
-        <div class="container">
+        <div class="container clearfix">
+            <div class="mc_t">
+                <span>20个商品</span>
+                <span>排序方式</span><datalist></datalist>
+            </div>
             <div class="mc_c"></div>
         </div>
     </div>
+    <div id="l_footer"></div>
+    <div class="l_aside"></div>
+    <script src="../js/require.js" data-main="../js/list"></script>
 </body>
 </html>
