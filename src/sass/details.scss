@@ -1,4 +1,166 @@
 #dq_main{
+    .dq_msg{
+        padding-top:20px;
+        .dq_ml{
+            padding:40px 58px 40px 40px;
+            border:1px solid #ccc;
+            position:relative;
+            .bigPic{
+                img{
+                    display:block;
+                    width: 426px;
+                    height: 432px;
+                    border-radius:5%;
+                }
+            }
+            .zoom{
+                position:absolute;
+                right:10px;
+                font-size:14px;
+                color:#333333;
+                bottom:10px; 
+                &:hover{
+                    color:#FF5099;
+                }   
+            }
+            margin-right:24px;
+        }
+        .dq_mr{
+            padding-right:20px;
+            width: 564px;
+            h2{
+                font-size:20px;
+                padding-top:10px;
+                font-weight:bold;
+                height: 48px;
+                color:#333333;
+            }
+            .dec{
+                font-size:14px;
+                line-height: 18px;
+                color:#888896;
+                margin-bottom:20px
+            }
+            .pri{
+                background:#EDEDED;
+                padding-top:12px;
+                margin-bottom:18px;
+                p{
+                    padding-left:12px;
+                    margin-bottom:10px;
+                    font-size:13px;
+                    .sa::before{
+                        content:"￥";
+                    }
+                }
+                p:nth-of-type(1){
+                    .sa{
+                        margin-left:48px;
+                    }
+                }
+                p:nth-of-type(2){
+                    .sa,.sale{
+                        margin-left:36px;
+                        color:#FF5099;
+                        font-size:20px;
+                    }
+                    .sale{
+                        padding:2px 5px;
+                        font-size:12px;
+                        border-radius:20%;
+                        border:1px solid #FF5099;
+                    }
+                }
+                p:nth-of-type(3){
+                    background:#F7F7F7;
+                    margin:0;
+                    font-size:16px;
+                    line-height: 42px;
+                    i{
+                        padding:3px;
+                        background:#FF5099;
+                        color:#fff;
+                        margin-right:30px;
+                    }
+                    a{
+                        color:#369BF9;
+                    }
+                }
+            }
+            .yf{
+                margin-top:18px;
+                padding-left:12px;
+                font-size:18px;
+                color:#333;
+                span:first-child{
+                    color:#AAB1C7;
+                    margin-right:30px;
+                }
+                margin-bottom:15px;
+            }
+            .til{
+                font-size:14px;
+                font-weight:bold;
+                margin-bottom:18px;
+            }
+            .qty{
+                padding-left:12px;
+                margin-bottom:50px;
+                font-size:14px;
+                font-weight:bold;
+                span{
+                    line-height: 30px;
+                }
+                .sa{
+                    padding:6px;
+                    background:#F2F2F2;
+                    &:hover{
+                        color:#FF5073;
+                    }
+                }
+                .jn{margin-left:42px;}
+                .ja{margin-right:25px;}
+                input{
+                    width: 48px;
+                    height: 30px;
+                    text-align:center;
+                    border:1px solid #ccc;
+                }
+                span:last-of-type{
+                    color:#FF5073;
+                }
+            }
+            .la{
+                padding-left:12px;
+                a{
+                    padding:14px 26px;
+                    border:2px solid #FF5073;
+                    color:#FF5073;
+                    font-size:14px;
+                    border-radius:10%;
+                    &:hover{
+                        background:#FF5073;
+                        color:#fff;
+                    }
+                }
+                a:first-child{
+                    margin-right:10px;
+                }
+            }
+        }
+    }
+    .dq_cmsg{
+        padding:34px 226px;
+        .box{
+            padding:10px;
+            border:1px solid #ccc;
+            img{
+                width: 56px;
+                height: 56px;
+            }
+        }
+        
+    }
     .dq_a1{
         height: 62px;
         margin-bottom:40px;

@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <title>购物车</title>
     <link rel="stylesheet" type="text/css" href="../css/bass.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/header.css"/>
     <link rel="stylesheet" type="text/css" href="../css/shoppCart.css" />
 </head>
 <body>
+    <div class="Header"></div>
     <div id="c_main">
         <div class="container">
             <div class="c_mt1 clearfix" >
@@ -19,15 +21,31 @@
                 </div>
             </div>
             <div class="mct2">
-                <i class="iconfont ic_check_box_px"></i>
+                <a href="#"class="iconfont ic_check_box_px"></a>
                 <span>商品信息</span>
-                <span>商品</span>
-                <span>商品</span>
-                <span>商品</span>
-                <span>商品</span>
-                <span>商品</span>
+                <span>规格</span>
+                <span>单价</span>
+                <span>数量</span>
+                <span>操作</span>
+            </div>
+            <div class="mct3">
+                <a href="#" class="a1 iconfont ic_check_box_px"></a>
+                <a href="#" class="a2 iconfont shandian"></a>
+                <span class="sp1">其他商品</span>
+                <span class="sp2">满99元包邮</span>
+            </div>
+            <div class="shop clearfix">
+                <p class="fr tol">本仓总计:<span class="alltol"></span> (优惠¥0.00)</p>
+            </div>
+            <div class="mct4 clearfix">
+                <a href="#" class="fl a1"><i class="a1 iconfont ic_check_box_px"></i><span class="iconfont delete">删除</span><span class="iconfont qingchu">清空失效的商品</span></a>
+                <p class="fl p1">总计: <span class="alltol"></span>(不含运费)</p>
+                <a  class="fr a2">去结算</a>
             </div>
         </div>
-    </div>
+    </div>  
+    <div id="c_footer"></div>
+    <div class="r_aside"></div>
+    <script src="../js/require.js" data-main="../js/shoppCart"></script>
 </body>
 </html>

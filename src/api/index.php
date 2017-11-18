@@ -1,16 +1,10 @@
 <?php
     include 'connect.php';
-
-    $pageNo=isset($_GET['pageNo'])?$_GET['pageNo']:1;
-
-    $qty=isset($_GET['qty'])?$_GET['qty']:10;
+    //执行spl语句
+    $sql = "select * from i_goods";
 
     $id=isset($_GET['id'])?$_GET['id']:'';
-
-
-    //执行spl语句
-    $sql = "select * from l_goods";
-
+    
     if($id){
         $sql .= " where id='$id'";
         $str = $conn->query($sql);
@@ -26,16 +20,13 @@
     // 返回数组
     $arr = $result->fetch_all(MYSQLI_ASSOC);
 
+   
+
+    // 把数组转换成json字符串
+    $res = json_encode($arr,JSON_UNESCAPED_UNICODE);
+
     //释放查询结果集，避免资源浪费
     $result->close();
-
-    //根据分页截取数据
-    $row=array(
-        'date'=>array_slice($arr,($pageNo-1)*$qty,$qty),
-        'total'=>count($arr)//得到数组长度
-        );
-    // 把数组转换成json字符串
-    $res = json_encode($row,JSON_UNESCAPED_UNICODE);
 
     echo "$res";
 

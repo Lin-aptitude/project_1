@@ -82,6 +82,7 @@
                 padding-top:22px;
                 background:#F2F2F2;
                 position:relative;
+                z-index: 2;
                 &:hover{
                     .h-b{
                         display:block;
@@ -92,7 +93,6 @@
                     height: 480px;
                     display:none;
                     background:#7B5E69;
-
                     position:absolute;
                     left: 0;
                     top: 44px;
@@ -342,8 +342,10 @@
 
 // 右边部分
 .r_aside{
+    
     width: 40px;
     height:1200px;
+    position:relative;
     position:fixed;
     right:0;
     top:0;
@@ -450,4 +452,99 @@
             }
         }
     }
+    //购物车内容
+    .ra_cont{
+        width: 280px;
+        border:1px solid #ccc;
+        position:absolute;
+        left:40px;
+        top:0; 
+        padding:0 10px;
+        background:#fff;
+        .car{
+            border-bottom:1px solid #ccc;
+            height: 38px;
+            line-height: 38px;
+            font-size:18px;
+            span{
+                font-size:30px;
+            }
+        }
+        .til{
+            height: 30px;
+            padding-top:14px;
+            font-size:14px;
+        }
+        .carlist{
+            li{
+                padding:20px 0;
+                border-bottom:1px solid #ccc;
+                img{
+                    width: 76px;
+                    height: 90px;
+                    margin-right:18px;
+                }
+                .msg{
+                    h2{
+                        font-size:12px;
+                        line-height: 20px;
+                    }
+                    .p1{
+                        margin:10px 0;
+                        a{
+                            padding:1px 6px;
+                            font-weight:bold;
+                            border:1px solid #ccc;
+                            background:#fff;
+                            font-size:14px;
+                            border-radius:50%;
+                            &:hover{
+                                border:1px solid #FD49AC;
+                                background:#FD49AC;
+                                color:#fff;
+                            }
+                        }
+                        .a1{margin-right:10px}
+                        .a2{margin-left:10px}
+                    }
+                    .p2{
+                        span::before{
+                            content:'￥';
+                        }
+                        span{
+                            font-size:14px;
+                            color:#FD49AC;
+                        }
+                        a{
+                            font-size: 24px;
+                            &:hover{
+                                color:#FD49AC;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .total{
+            padding:14px 0 20px;
+            border-bottom:1px dashed #ccc;
+        }
+        .gocar{
+            margin:10px 0;
+            a{
+                display:block;
+                background:#FF5073;
+                height: 42px;
+                line-height: 42px;
+                text-align:center;
+                border-radius:10px;
+                font-size:16px;
+                color:#fff;
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
 }
+

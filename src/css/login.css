@@ -8,7 +8,7 @@
 
 #d_banner .container .login { background: #fff; width: 410px; padding-top: 30px; }
 
-#d_banner .container .login .test { padding: 0 30px 22px; border-bottom: 1px solid #ccc; }
+#d_banner .container .login .test { padding: 0 30px 22px; position: relative; border-bottom: 1px solid #ccc; }
 
 #d_banner .container .login .test h2 { padding-right: 5px; margin-bottom: 40px; }
 

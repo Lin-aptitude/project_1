@@ -6,17 +6,19 @@
     <link rel="stylesheet" type="text/css" href="../css/bass.css"/>
     <link rel="stylesheet" type="text/css" href="../css/details.css" />
     <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../lib/jquery.gdsZoom/jquery.gdsZoom.css" />
 </head>
 <body>
     <div id="dq_head"></div>
     <div id="dq_main">
         <div class="container">
             <div class="dq_msg clearfix">
-                <div class="dq_ml fl">
-                    <img src="" class="goods" />
+                <div class="dq_ml fl" id="content">
+                    <a href="" class="bigPic clearfix">
+                        <img src="" class="goods" /></a>
                     <a href="#" class="zoom">变焦</a>
                 </div>
-                <div class="dq_mr fl">
+                <div class="dq_mr fl clearfix">
                     <h2 class="title"></h2>
                     <p class="dec">最人气的毛孔管理单品！猪鼻贴三步曲轻松搞定黑头,草莓鼻。猪鼻贴第一贴轻松帮你导出鼻头上的黑头，第二贴帮你强有力地吸出所有黑头，第三贴是在导出所有黑头之后有效收缩毛孔，避免黑头二次生长。猪鼻贴，黑头的克星！</p>
                     <div class="pri clearfix">
@@ -44,15 +46,15 @@
                     <p class="til"></p>
                     <div class="qty clearfix">
                         <span class="fl">数量</span>
-                        <a href="#" class=" fl jn" >-</a>
-                        <input type="text" class="fl"/>
-                        <a href="#" class="fl ja">+</a>
+                        <a href="#" class="sa fl jn" >-</a>
+                        <a href="#" title="qty" class="fl"><input type="text" class="int" value="1" /></a>
+                        <a href="#" class="sa fl ja">+</a>
                         <span class="fl">库存：</span>
                         <span class="fl">有货</span>
                     </div>
-                    <p class="la">
-                        <a href="#" title="收藏">加入收藏</a>
-                        <a href="#" title="加入购物车">加入购物车</a>
+                    <p class="la clearfix">
+                        <a href="#" title="收藏" class="fl">加入收藏</a>
+                        <a href="#" title="加入购物车" class="fl">加入购物车</a>
                     </p>
                 </div>
             </div>

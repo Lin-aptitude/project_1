@@ -31,7 +31,7 @@
 
 .Header .nav .container .kind, .Header .nav .container .nr { height: 44px; font-size: 16px; color: #000; text-align: center; font-weight: bold; }
 
-.Header .nav .container .kind { width: 160px; padding-top: 22px; background: #F2F2F2; position: relative; }
+.Header .nav .container .kind { width: 160px; padding-top: 22px; background: #F2F2F2; position: relative; z-index: 2; }
 
 .Header .nav .container .kind:hover .h-b { display: block; }
 
@@ -135,7 +135,7 @@
 
 .footer .foot-b2 .container p span:nth-of-type(1) { margin-right: 254px; }
 
-.r_aside { width: 40px; height: 1200px; position: fixed; right: 0; top: 0; background: #818181; }
+.r_aside { width: 40px; height: 1200px; position: relative; position: fixed; right: 0; top: 0; background: #818181; }
 
 .r_aside .rac { margin-top: 190px; background: #818181; /*左边的span*/ }
 
@@ -170,3 +170,43 @@
 .r_aside .rac .sa .lsp { display: none; width: 92px; position: absolute; line-height: 38px; color: #ccc; height: 38px; background: #818181; }
 
 .r_aside .rac .sa .lsp i { display: block; position: absolute; right: -16px; top: 50%; transform: translate(0, -50%); border-width: 8px; border-style: solid dashed dashed dashed; border-color: transparent transparent transparent #818181; }
+
+.r_aside .ra_cont { width: 280px; border: 1px solid #ccc; position: absolute; left: 40px; top: 0; padding: 0 10px; background: #fff; }
+
+.r_aside .ra_cont .car { border-bottom: 1px solid #ccc; height: 38px; line-height: 38px; font-size: 18px; }
+
+.r_aside .ra_cont .car span { font-size: 30px; }
+
+.r_aside .ra_cont .til { height: 30px; padding-top: 14px; font-size: 14px; }
+
+.r_aside .ra_cont .carlist li { padding: 20px 0; border-bottom: 1px solid #ccc; }
+
+.r_aside .ra_cont .carlist li img { width: 76px; height: 90px; margin-right: 18px; }
+
+.r_aside .ra_cont .carlist li .msg h2 { font-size: 12px; line-height: 20px; }
+
+.r_aside .ra_cont .carlist li .msg .p1 { margin: 10px 0; }
+
+.r_aside .ra_cont .carlist li .msg .p1 a { padding: 1px 6px; font-weight: bold; border: 1px solid #ccc; background: #fff; font-size: 14px; border-radius: 50%; }
+
+.r_aside .ra_cont .carlist li .msg .p1 a:hover { border: 1px solid #FD49AC; background: #FD49AC; color: #fff; }
+
+.r_aside .ra_cont .carlist li .msg .p1 .a1 { margin-right: 10px; }
+
+.r_aside .ra_cont .carlist li .msg .p1 .a2 { margin-left: 10px; }
+
+.r_aside .ra_cont .carlist li .msg .p2 span::before { content: '￥'; }
+
+.r_aside .ra_cont .carlist li .msg .p2 span { font-size: 14px; color: #FD49AC; }
+
+.r_aside .ra_cont .carlist li .msg .p2 a { font-size: 24px; }
+
+.r_aside .ra_cont .carlist li .msg .p2 a:hover { color: #FD49AC; }
+
+.r_aside .ra_cont .total { padding: 14px 0 20px; border-bottom: 1px dashed #ccc; }
+
+.r_aside .ra_cont .gocar { margin: 10px 0; }
+
+.r_aside .ra_cont .gocar a { display: block; background: #FF5073; height: 42px; line-height: 42px; text-align: center; border-radius: 10px; font-size: 16px; color: #fff; }
+
+.r_aside .ra_cont .gocar a:hover { opacity: 0.7; }

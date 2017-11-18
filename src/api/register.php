@@ -1,41 +1,41 @@
 <?php
-    
-    // if(in_array($username, $all_user)){
-    //     echo "no";
-    // }else{
-    //     echo "yes";
-    // }
+    include 'connect.php';
+    // 接受前端数据
+    $phone = isset($_GET['phone']) ? $_GET['phone'] : '';
+    $password = isset($_GET['pwd']) ? $_GET['pwd'] : '';
 
+    //查看用户名是否已经存在
+    $sql = "select phone from user where phone='$phone'";
 
-    // 获取前端传递的参数
-    $username = isset($_GET['username'])?$_GET['username']:'';
+    $result= $conn->query($sql);
 
-    // 文件路径
-    $file_url="./data/register.json";
+    if($result->num_rows>0){
+        // 释放查询内存(销毁)
+        $result->free();
 
-    // 打开文件
-    $myfile=fopen($file_url,'r');
+        // 用户名已经被占用
+        echo "no";
+    }else{
+        // 释放查询内存(销毁)
+        $result->free();
+        
+        // 密码md5加密
+        $password = md5($password);
+        echo "$password";
 
-    //读取文件
-    $content=fread($myfile,filesize($file_url));
-    
-    //关闭文件
-    fclose($myfile);
-    
-    //把读取的内容转成数组
-    $arr=json_decode($content);
+        $sql = "insert into user(phone,password) values('$phone','$password')";
+        $result = $conn->query($sql);
 
-    $res= array();
-
-    foreach($arr as $key => $value){
-        var_dump($key,$value);
+        if ($result) {
+            // 写入成功
+            echo "ok";
+        } else {
+            // 写入失败
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 
-    var_dump($arr)
-    //根据分页截取数据
-    // var res=array('' => , );
-
-    // 将数组转成字符串
-    // echo json_encode($res,JSON_UNESCAPED_UNICODE);
+    //关闭连接
+    $conn->close();
 
 ?>

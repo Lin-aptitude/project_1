@@ -1,5 +1,8 @@
-jQuery(function($){
-            //导入登录页的内容
+
+require(['config'],function(){
+     //等待config加载完后才执行
+    require(['jquery','common'],function($,com){
+        //导入登录页的内容
             $('#z_header').load('../html/login.html #d_header');
 
             $('#z_banner').load('../html/login.html #d_banner',function(){
@@ -7,7 +10,7 @@ jQuery(function($){
                 //以下为注册页面与登录页面不同的部分
                 $('h2').css({marginBottom:40});
                 $('h2 span').html('注册MEMEBOX帐号');
-                $('h2 a').html('立即登录>>').css({
+                $('h2 a').html('立即登录>>').attr({
                     href:'../html/login.html'
                 });
 
@@ -49,36 +52,57 @@ jQuery(function($){
                 });
 
                 //判断用户名是否被占用
-                $(this).on('blur','#user',function(){
+                $(this).on('click','.btn',function(){
                     //发起ajax异步请求
-                    var user=$('#user')[0].value;
+                    var phone=$('#user').val();
+                    var pwd=$('#pwd').val();
+                    var $ts=$('<span/>')
+                    $ts.insertAfter($('#user')).css({
+                        position:'absolute',
+                        color:'#FF5073',
+                        left:42,
+                        top:98
+                    });
+                    //用于提示用
+                    var $hint=$('<span/>');
+                    $hint.css({
+                        position:'absolute',
+                        left:40,
+                        color:'#FF5073'
+                    }).appendTo($('.test'));
+
+                    if(!/^1[34578]\d{9}$/.test(phone)){
+                        $hint.css({top:98}).html('你输入的账号格式有误？');
+                        return false;
+                    }
+                   
+                    if(!/^[^\s]{1,19}$/.test(pwd)){
+                        $hint.css({top:158}).html('你输入的密码不符合要求');
+                        return false;
+                    }
+
+                    
                     $.ajax({
                         type:'get',
                         url:'../api/register.php',
-                        data:{username:user},
+                        data:{phone:phone,pwd:pwd},
                         success:function(res){
-                            console.log(res);
-                            
+                            if(res=='no'){
+                                $('#user').val('');
+                                $('#user')[0].focus()
+                                $('#user').css({
+                                    borderColor:'#FF5073'
+                                });
+                               $ts.text('你输入的手机号已被注册！')
+                            }else{
+                                $('.btn a').attr({
+                                     href:'../html/login.html'
+                                })
+                            }
                         }
                     })
                 })
-          })
-          
-          
-
-        //导入尾部
-        $('#z_footer').load('../html/header.html .footer',function(){
-            // 左侧尾部鼠标移入事件
-            $('.ewm').on('mouseenter','.span',function(){
-                //获取鼠标移入时的idx
-                var idx=$(this).index('.span');
-                //显示对应的第idx个span 
-                $(this).siblings('i').eq(idx).show().siblings('i').hide();
             })
-            //移出效果
-            .on('mouseleave','.span',function(){
-                var idx=$(this).index('.span');
-                $(this).siblings('i').eq(idx).hide();
-            });
-        });
-      })
+    })
+})
+   

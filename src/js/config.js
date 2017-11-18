@@ -4,9 +4,11 @@
 require.config({
     paths:{
         jquery:'../lib/jquery-3.2.1',
-        common:'../js/common'
+        common:'../js/common',
+        jqzoom:'../lib/jquery.gdsZoom/jquery.gdsZoom'
     },
     shim:{
-        common:['jquery']//common依赖jquery
+        common:['jquery'],
+        jqzoom:['jquery']
     }
 });
