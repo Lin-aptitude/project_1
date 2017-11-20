@@ -13,16 +13,20 @@
       //鼠标移入效果
       var $raside=$('.r_aside');
       $('.r_aside .lsp').hide();
+
+
       //移入效果
       $raside.on('mouseover','.sa',function(){
           var $lsp=$(this).find('.lsp');
           $lsp.show().css({left:-120,top:0}).stop().animate({left:-92},500)
       })
+
       //移出效果
       .on('mouseout','.sa',function(){
           var $lsp=$(this).find('.lsp');
           $lsp.stop().hide();
       })
+
       //返回顶部效果
       .on('click','.gotop',function(){
         var timer;
@@ -37,10 +41,21 @@
             scrollTo(0,scrollTop);
         },20);
       })
+
       //购物车展开动画
       .on('click','.car',function(){
           $('.ra_cont').animate({left:-280});
       })
+
+      $('.ra_cont').on('click','.tocar',function(){
+          $(this).attr({
+            href:'shoppCart.html'
+          })
+      })
+      $('.ra_cont').on('click','.btnclose',function(){
+          $('.ra_cont').animate({left:40});
+      })
+
   }
 //cookie操作
 //增，删，查，改

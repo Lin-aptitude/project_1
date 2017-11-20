@@ -15,7 +15,7 @@
         $sql .= " where id='$id'";
         $str = $conn->query($sql);
     }
-
+    
     // 执行sql语句
     // query()
     // 得到一个：查询结果集

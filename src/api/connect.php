@@ -6,9 +6,8 @@
 	$password = '';
 	$database = 'mmx';
 	
-
-	// 连接数据库
-	$conn = new mysqli($servername,$username,$password ,$database);//得到实例对象
+	//连接数据库
+	$conn=new mysqli($servername,$username,$password,$database);//得到实例对象
 
 	// 检测连接
 	if($conn->connect_errno){

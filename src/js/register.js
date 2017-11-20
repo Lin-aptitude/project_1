@@ -4,6 +4,7 @@ require(['config'],function(){
     require(['jquery','common'],function($,com){
         //导入登录页的内容
             $('#z_header').load('../html/login.html #d_header');
+            $('#z_footer').load('../html/header.html .footer',show);
 
             $('#z_banner').load('../html/login.html #d_banner',function(){
                 //注册页面对引用来的登录页面进行修改

@@ -3,7 +3,17 @@ require(['config'],function(){
     //等待config加载完后才执行
     require(['jquery','common'],function($,com){
             //导入头部
-            $('#head').load('html/header.html .Header')
+            $('#head').load('html/header.html .Header',function(){
+                $('.login').attr({
+                    href:'html/login.html'
+                })
+                $('.regis').attr({
+                    href:'html/register.html'
+                })
+                $('.list').attr({
+                    href:'html/list.html'
+                })
+            })
 
             //导入尾部
             $('#footer').load('html/header.html .footer',show);
@@ -11,10 +21,11 @@ require(['config'],function(){
             // 导入右侧部分
             $('.raside').load('html/header.html .r_aside',function(){
                 show();
-                
-
-
-
+                $('.ra_cont').on('click','.tocar',function(){
+                      $(this).attr({
+                        href:'html/shoppCart.html'
+                      })
+                })
             });
 
             
@@ -38,7 +49,7 @@ require(['config'],function(){
                                         </p>
                                     </a>
                                 </li>`
-                    });
+                    }).join('');
                     $g0_list.html(cont0).appendTo($mct2);
 
                     var $mct=$('.mc_t');
@@ -95,6 +106,9 @@ require(['config'],function(){
                         type:'get',
                         url:'../api/index.php',
                         dataType:'json',
+                        data:{
+                            hot:'hot'
+                        },
                         success:function(res){
                            var cont1=res.map((item)=>{
                                 return `<li class="item fl" data-id="${item.id}">
@@ -111,7 +125,7 @@ require(['config'],function(){
                                                         <p class="spri">立省&nbsp;<span>${item.cprice-item.nprice}</span></p>
                                                     </div>
                                                 </div>
-                                                <button class="fl btn">${item.btn}</button>
+                                                <button class="fl btn">加入购物车</button>
                                             </div>
                                         </li>`
                             }).join('');
@@ -129,13 +143,99 @@ require(['config'],function(){
                         location.href=`html/details.html?id=I${guid}`;
                     })
 
-                    var datalist = Cookie.get('datalist');
+                    var datalist = Cookie.get('goodsdata');
 
                     if(!datalist){
                         datalist = [];
                     }else{
                         datalist = JSON.parse(datalist);
                     }
+                    car();
+                    function car(){
+                        // 计算总价
+                        var totolprice=0;
+                        // 计算总数量
+                        var qty=0;
+                        var $ra_cont=$('.ra_cont');
+                        var $carlist=$('<ul/>').addClass('carlist');
+                        var cont=datalist.map((item)=>{
+                            totolprice+=item.price*item.qty
+                            qty+=item.qty;
+                            return `<li class="clearfix" data-id="${item.guid}">
+                                        <img class="fl" src="${item.imgurl}"/>
+                                        <div class="msg fl">
+                                            <h2 >${item.name}</h2>
+                                            <p class="p1">
+                                                <a href="#" class="a1">-</a>
+                                                <span>${item.qty}</span>
+                                                <a href="#" class="a2">+</a>
+                                            </p>
+                                            <p class="p2 clearfix">
+                                                <span class="fl">${item.price}</span>
+                                                <a href="#" class="fr iconfont delete"></a>
+                                            </p>
+                                        </div>
+                                        
+                                    </li>`
+                        }).join('');
+                        
+                        $carlist.html(cont).insertBefore($('.total'));
+                        $('.qty').text(qty);
+                        $('.cartol').text(qty);
+                        $('.tol').text(totolprice.toFixed(2));
+
+                        //实现商品的增减效果
+                        $ra_cont.on('click','.a1',function(){
+                            var $qty=$(this).next('span');
+                            var num=$qty.text()*1;
+                            num--;
+                            if(num<1){
+                                num=1;
+                            }
+                            $qty.text(num);
+                            var $currli=$(this).closest('li');
+                            var curridx=$currli.attr('data-id');
+                            for(var i=0;i<datalist.length;i++){
+                                var item=datalist[i]
+                                if(item.id === curridx){
+                                    item.qty=num;
+                                    break;
+                                }
+                            }
+                            Cookie.set('goodsdata',JSON.stringify(datalist),'','/');
+                        }).on('click','.a2',function(){
+                            var $qty=$(this).prev('span');
+                            var num=$qty.text()*1;
+                            num++;
+                            $qty.text(num);
+                            var $currli=$(this).closest('li');
+                            var curridx=$currli.attr('data-id');
+                            for(var i=0;i<datalist.length;i++){
+                                var item=datalist[i]
+                                if(item.id === curridx){
+                                    item.qty=num;
+                                    break;
+                                }
+                            }
+                            Cookie.set('goodsdata',JSON.stringify(datalist),'','/');
+                            
+                        }).on('click','.delete',function(){
+                            var $currli=$(this).closest('li');
+                            var curridx=$currli.attr('data-id');
+                            for(var i=0;i<datalist.length;i++){
+                                if(datalist[i].id === curridx){
+                                    datalist.splice(i,1);
+                                    break;
+                                }
+                            }
+                            console.log(datalist)
+                            $currli.remove();
+                            Cookie.set('goodsdata',JSON.stringify(datalist),'','/');
+
+                        })
+
+                    }
+
                     //加入购物车效果
                     $mc_c.on('click','.btn',function(){
                         var $carlist=$('.carlist');
@@ -166,8 +266,7 @@ require(['config'],function(){
                             // 把当前商品添加到数组中
                             datalist.push(goods);
                         }
-
-                        Cookie.set('goodsdata',JSON.stringify(datalist));// * JSON.stringify():把js对象（数组）转换成json字符串
+                        Cookie.set('goodsdata',JSON.stringify(datalist),'','/');// * JSON.stringify():把js对象（数组）转换成json字符串
 
 
                         //复制当前面图片用于动画效果
@@ -189,68 +288,11 @@ require(['config'],function(){
                             width:20},'10000',function(){
                             //删除图片
                             $cloneimg.remove();
-                            car();
                             
                         })
-                        //获取cookie
-                        var goodsdata= Cookie.get('goodsdata');
-                        if(goodsdata){
-                            goodsdata = JSON.parse(goodsdata);
-                        }
 
-                        function car(){
-                            // 计算总价
-                            var totolprice=0;
-                            // 计算总数量
-                            var qty=0;
-                            var $ra_cont=$('.ra_cont');
-                            var $carlist=$('<ul/>').addClass('carlist');
-                            var cont=goodsdata.map((item)=>{
-                                totolprice+=item.price*item.qty
-                                qty+=item.qty;
-                                return `<li class="clearfix" data-id="${item.guid}">
-                                            <img class="fl" src="${item.imgurl}"/>
-                                            <div class="msg fl">
-                                                <h2 >${item.name}</h2>
-                                                <p class="p1">
-                                                    <a href="#" class="a1">-</a>
-                                                    <span>${item.qty}</span>
-                                                    <a href="#" class="a2">+</a>
-                                                </p>
-                                                <p class="p2 clearfix">
-                                                    <span class="fl">${item.price}</span>
-                                                    <a href="#" class="fr iconfont delete"></a>
-                                                </p>
-                                            </div>
-                                            
-                                        </li>`
-                            }).join('');
-                            $carlist.html('');
-                            $carlist.html(cont).insertBefore($('.total'));
-                            $('.qty').text(qty);
-                            $('.tol').text(totolprice.toFixed(2));
-
-                        }
-                        //实现商品的增减效果
-                        $('.ra_cont').on('click','.a1',function(){
-                            
-                        }).on('click','.a2',function(){
-                            
-                        }).on('click','.delete',function(){
-                            var $currli=$(this).closest('li');
-                            $currli.remove();
-                            var curridx=$currli.attr('data-id');
-                            for(var i=0;i<goodsdata.length;i++){
-                                if(goodsdata[i].id === curridx){
-                                    goodsdata.splice(i,1);
-                                    break;
-                                }
-                            }
-                            var date = new Date();
-                            date.setDate(date.getDate()+15);
-                            document.cookie = 'goodsdata=' + JSON.stringify(goodsdata) + ';expires=' + date.toUTCString();
-
-                        })
+                        
+                        
                     })
 
                 }

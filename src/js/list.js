@@ -2,12 +2,23 @@ require(['config'],function(){
     //等待config加载完后才执行
     require(['jquery','common'],function($,com){
         //导入头尾
-        $('#l_head').load('../html/header.html .Header');
-        $('.l_aside').load('../html/header.html .r_aside',show);
+        $('#l_head').load('../html/header.html .Header',function(){
+            $('.index').attr({
+                href:'../index.html'
+            })
+        });
+        $('.l_aside').load('../html/header.html .r_aside',function(){
+            show();
+            $('.r_aside').on('click','.tocar',function(){
+                $(this).attr({
+                    href:'shoppCart.html'
+                })
+            })
+        });
         $('#l_footer').load('../html/header.html .footer',function(){
             show();
             //到购车效果
-            var datalist = Cookie.get('datalist');
+            var datalist = Cookie.get('goodsdata');
             if(!datalist){
                 datalist = [];
             }else{
@@ -20,6 +31,7 @@ require(['config'],function(){
                 var $currimg=$currli.find('img');
                 var guid=$currli.attr('data-id');
                 var currentIdx;
+                
                 var res = datalist.some(function(goods,idx){
                     currentIdx = idx;
                     return goods.guid == guid;
@@ -64,7 +76,7 @@ require(['config'],function(){
                     
                 })
 
-                Cookie.set('goodsdata',JSON.stringify(datalist));
+                Cookie.set('goodsdata',JSON.stringify(datalist),'','/');
             })    
         });
         
@@ -96,7 +108,7 @@ require(['config'],function(){
                             </a>
                             <p class="cpri"><span><del>${item.cprice}</del></span></p>
                             <p class="npri"><span>${item.nprice}</span></p>
-                            <button class="btn"><a>${item.btn}</a></button>
+                            <button class="btn"><a>加入购物车</a></button>
                         </li>`
                 }).join('');
 
