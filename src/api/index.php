@@ -1,7 +1,7 @@
 <?php
     include 'connect.php';
     //执行spl语句
-    $sql = "select * from l_goods";
+    $sql = "select * from goods";
 
     $id=isset($_GET['id'])?$_GET['id']:'';
     $hot=isset($_GET['hot'])?$_GET['hot']:'';

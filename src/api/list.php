@@ -9,7 +9,7 @@
 
 
     //执行spl语句
-    $sql = "select * from l_goods";
+    $sql = "select * from goods";
 
     if($id){
         $sql .= " where id='$id'";
